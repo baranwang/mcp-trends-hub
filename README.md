@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/baranwang-mcp-trends-hub-badge.png)](https://mseep.ai/app/baranwang-mcp-trends-hub)
+
 # 🔥 Trends Hub
 
 [![smithery badge](https://smithery.ai/badge/@baranwang/mcp-trends-hub)](https://smithery.ai/server/@baranwang/mcp-trends-hub)
