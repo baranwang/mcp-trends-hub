@@ -6,6 +6,10 @@
 
 基于 Model Context Protocol (MCP) 协议的全网热点趋势一站式聚合服务
 
+<a href="https://glama.ai/mcp/servers/@baranwang/mcp-trends-hub">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@baranwang/mcp-trends-hub/badge" alt="Trends Hub MCP server" />
+</a>
+
 ## 示例效果
 
 <picture>
