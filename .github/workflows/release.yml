@@ -27,6 +27,9 @@ jobs:
 
       - run: pnpm install
 
+      # npm >= 11.5.1 is required for OIDC trusted publishing
+      - run: npm install -g npm@latest
+
       - run: pnpm test
 
       - uses: changesets/action@v1
