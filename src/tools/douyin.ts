@@ -1,14 +1,14 @@
-import { dayjs, defineToolConfig, handleSuccessResult, http, logger } from '../utils';
+import { dayjs, defineToolConfig, http } from "../utils";
 
 const getCsrfToken = async () => {
   try {
-    const reps = await http.get('https://www.douyin.com/passport/general/login_guiding_strategy/', {
+    const reps = await http.get("https://www.douyin.com/passport/general/login_guiding_strategy/", {
       params: {
         aid: 6383,
       },
     });
     const pattern = /passport_csrf_token=([^;]*); Path/;
-    const matchResult = reps.headers['set-cookie']?.[0].match(pattern);
+    const matchResult = reps.headers["set-cookie"]?.[0].match(pattern);
     const csrfToken = matchResult?.[1];
     return csrfToken;
   } catch (error) {
@@ -17,8 +17,8 @@ const getCsrfToken = async () => {
 };
 
 export default defineToolConfig({
-  name: 'get-douyin-trending',
-  description: '获取抖音热搜榜单，展示当下最热门的社会话题、娱乐事件、网络热点和流行趋势',
+  name: "get_douyin_trending",
+  description: "获取抖音热搜榜单，展示当下最热门的社会话题、娱乐事件、网络热点和流行趋势",
   func: async () => {
     const csrfToken = await getCsrfToken();
     const resp = await http.get<{
@@ -26,11 +26,11 @@ export default defineToolConfig({
       data: {
         word_list: any[];
       };
-    }>('https://www.douyin.com/aweme/v1/web/hot/search/list/', {
+    }>("https://www.douyin.com/aweme/v1/web/hot/search/list/", {
       params: {
-        device_platform: 'webapp',
+        device_platform: "webapp",
         aid: 6383,
-        channel: 'channel_pc_web',
+        channel: "channel_pc_web",
         detail_list: 1,
       },
       headers: {
@@ -38,7 +38,7 @@ export default defineToolConfig({
       },
     });
     if (resp.data?.status_code !== 0 || !Array.isArray(resp.data.data.word_list)) {
-      throw new Error('获取抖音热榜失败');
+      throw new Error("获取抖音热榜失败");
     }
     return resp.data.data.word_list.map((item) => {
       return {

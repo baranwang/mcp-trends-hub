@@ -2,7 +2,7 @@ import { URL } from 'node:url';
 import { defineToolConfig, http } from '../utils';
 
 export default defineToolConfig({
-  name: 'get-weibo-trending',
+  name: 'get_weibo_trending',
   description: '获取微博热搜榜，包含时事热点、社会现象、娱乐新闻、明星动态及网络热议话题的实时热门中文资讯',
   func: async () => {
     const resp = await http.get<{

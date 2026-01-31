@@ -21,7 +21,7 @@ const URL_MAP: Record<z.infer<typeof doubanRankSchema>['type'], string> = {
 };
 
 export default defineToolConfig({
-  name: 'get-douban-rank',
+  name: 'get_douban_rank',
   description: '获取豆瓣实时热门榜单，提供当前热门的图书、电影、电视剧、综艺等作品信息，包含评分和热度数据',
   zodSchema: doubanRankSchema,
   func: async (args: unknown) => {

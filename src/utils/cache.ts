@@ -1,10 +1,10 @@
-import os from 'node:os';
-import path from 'node:path';
-import fs from 'node:fs';
+import fs from "node:fs";
+import os from "node:os";
+import path from "node:path";
 
 class CacheStorage {
   private get cachePath() {
-    const cachePath = path.join(os.tmpdir(), 'mcp-trends-hub', 'cache');
+    const cachePath = path.join(os.tmpdir(), "mcp-trends-hub", "cache");
     if (!fs.existsSync(cachePath)) {
       fs.mkdirSync(cachePath, { recursive: true });
     }
@@ -20,7 +20,7 @@ class CacheStorage {
     if (!fs.existsSync(itemPath)) {
       return null;
     }
-    return fs.readFileSync(itemPath, 'utf-8');
+    return fs.readFileSync(itemPath, "utf-8");
   }
 
   setItem(key: string, value: string) {

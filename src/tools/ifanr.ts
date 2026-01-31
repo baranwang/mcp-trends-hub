@@ -1,5 +1,5 @@
-import { z } from 'zod';
-import { defineToolConfig, handleSuccessResult, http } from '../utils';
+import { z } from "zod";
+import { defineToolConfig, http } from "../utils";
 
 const ifanrRequestSchema = z.object({
   limit: z.number().int().optional().default(20),
@@ -7,21 +7,21 @@ const ifanrRequestSchema = z.object({
 });
 
 export default defineToolConfig({
-  name: 'get-ifanr-news',
-  description: '获取爱范儿科技快讯，包含最新的科技产品、数码设备、互联网动态等前沿科技资讯',
+  name: "get_ifanr_news",
+  description: "获取爱范儿科技快讯，包含最新的科技产品、数码设备、互联网动态等前沿科技资讯",
   zodSchema: ifanrRequestSchema,
   func: async (args: unknown) => {
     const { limit, offset } = ifanrRequestSchema.parse(args);
     const resp = await http.get<{
       objects: any[];
-    }>('https://sso.ifanr.com/api/v5/wp/buzz', {
+    }>("https://sso.ifanr.com/api/v5/wp/buzz", {
       params: {
         limit,
         offset,
       },
     });
     if (!Array.isArray(resp.data.objects)) {
-      throw new Error('获取爱范儿快讯失败');
+      throw new Error("获取爱范儿快讯失败");
     }
     return resp.data.objects.map((item) => {
       return {

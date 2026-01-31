@@ -22,7 +22,7 @@ const LIST_TYPE_MAP: Record<z.infer<typeof get36krRequestSchema>['type'], string
 };
 
 export default defineToolConfig({
-  name: 'get-36kr-trending',
+  name: 'get_36kr_trending',
   description: '获取 36 氪热榜，提供创业、商业、科技领域的热门资讯，包含投融资动态、新兴产业分析和商业模式创新信息',
   zodSchema: get36krRequestSchema,
   func: async (args) => {
