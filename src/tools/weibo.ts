@@ -10,7 +10,12 @@ export default defineToolConfig({
       data: {
         realtime: any[];
       };
-    }>('https://weibo.com/ajax/side/hotSearch');
+    }>('https://weibo.com/ajax/side/hotSearch', {
+      headers: {
+        Referer: 'https://weibo.com/',
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+      }
+    });
     if (resp.data.ok !== 1 || !Array.isArray(resp.data.data.realtime)) {
       throw new Error('获取微博热搜榜失败');
     }
