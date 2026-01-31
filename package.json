@@ -59,5 +59,8 @@
     "lefthook": "^1.11.3",
     "typescript": "^5.8.2"
   },
-  "packageManager": "pnpm@10.20.0"
+  "packageManager": "pnpm@10.20.0",
+  "publishConfig": {
+    "provenance": true
+  }
 }
